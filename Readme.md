@@ -15,6 +15,8 @@ Consumi las Apis, calcule el porcentaje y hago el efecto de que se actualizen lo
 
 * Las Apis que me dierón en un principio, manda bastante información y eso ocasiono confusión en mí :frowning:
 
+* La tablita del Ejemplo, me comento Genaro que no esta bien el orden, porque yo pensaba que tenia que consumir los precios MXN, pero al final las API´s solo mostraban USD, y eso tambíen me confundio, pero una vez preguntando, logre entender mejor.
+
 * Use angularjs, aunque ya había trabajado con este framework me llevo tiempo recordar como consumir servicios, pero me satisface haberlo logrado.
 
 * Me causo mucho conflicto con los porcentajes, no entendi con claridad como se obtenian, y estuve apoyandome de Genaro, yo habia encontrado una [solución para las diferencias de porcentajes](http://www.disfrutalasmatematicas.com/numeros/porcentaje-diferencia.html), pero no comprendia que datos debia usar puntualmente. Y eso me llevo tiempo. 
