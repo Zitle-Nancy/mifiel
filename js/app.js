@@ -2,30 +2,44 @@
 	var app = angular.module('btc', ['testService','ngRoute']);
 
 	app.controller('getData',['$scope','testRequest', function($scope,testRequest) {
-		$scope.getPriceVolabit = function() {
+		function getPriceVolabit() {
 			testRequest.getDataVolabit().then(function(response) {
-				// console.log(response);
-				$scope.priceMxnvolabit = response.data.btc_mxn_buy;
-				$scope.priceUsdvolabit = response.data.btc_usd_buy;
+				$scope.priceUsdvolabit = Number(response.data.btc_usd_buy);
+				$scope.priceMxnvolabit = ($scope.priceUsdvolabit * $scope.mxn).toFixed(2);
+				$scope.priceBuyMnx = response.data.btc_mxn_buy;
+				getPercentage();			
 			})
-			
 		}
-		$scope.getPriceVolabit();
+		getPriceVolabit();
 
-		$scope.getPriceBitso = function() {
+		function getPriceBitso () {
 			testRequest.getDataBitso().then(function(response) {
 				// console.log(response.data.payload);
 			})
-		}
-		// $scope.getPriceBitso();
+		};
+		// getPriceBitso();
 
-		$scope.getPriceBitstamp = function() {
+		function getPriceBitstamp() {
 			testRequest.getDataBitstamp().then(function(response) {
-				$scope.proceUsdBitstamp = response.data.ask;
-				console.log($scope.proceUsdBitstamp );
+				$scope.priceUsdBitstamp = response.data.ask;
+				// console.log($scope.proceUsdBitstamp );
 			})
-		}
-		$scope.getPriceBitstamp();
+		};
+		getPriceBitstamp();
+
+		function getPriceMxn() {
+			testRequest.getPriceMxn().then(function(response) {
+				$scope.mxn = response.data.rates.MXN;
+			})
+		};
+		getPriceMxn();
+
+		function getPercentage() {
+			var  difference = Number($scope.priceMxnvolabit) - Number($scope.priceBuyMnx);
+			var divideTheDifference = difference / Number($scope.priceBuyMnx);
+			$scope.percentage =  (divideTheDifference * 100).toFixed(2);
+		};
+		
 	}]);
 
 })();
