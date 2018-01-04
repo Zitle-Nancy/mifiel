@@ -3,37 +3,38 @@
 <head>
 	<title>Mifiel</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-controller="getData">
 	<div class="container">
-		<table class="striped">
-	        <thead>
-	          <tr>
-	              <th>...</th>
-	              <th>Volabit</th>
-	              <!-- <th>Bitso</th> -->
-	              <th>Bitstamp</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr>
-	            <td>Price USD</td>
-	            <td>{{priceUsdvolabit}} USD</td>
-	            <td>{{priceUsdBitstamp}} USD</td>
-	          </tr>
-	          <tr>
-	            <td>Price MXN</td>
-	            <td>{{priceMxnvolabit}} MXN</td>
-	            <td>---</td>
-	          </tr>
-	          <tr>
-	            <td>%</td>
-	            <td>%{{percentage}}</td>
-	            <td>---</td>
-	          </tr>
-	        </tbody>
-      </table>
+		 <table class="striped">
+		        <thead>
+		          <tr>
+		              <th>...</th>
+		              <th>Volabit</th>
+		              <!-- <th>Bitso</th> -->
+		              <th>Bitstamp</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr>
+		            <td>Price USD</td>
+		            <td>{{priceUsdvolabit}} USD</td>
+		            <td>{{priceUsdBitstamp}} USD</td>
+		          </tr>
+		          <tr>
+		            <td>Price MXN</td>
+		            <td>{{priceMxnvolabit}} MXN</td>
+		            <td>---</td>
+		          </tr>
+		          <tr>
+		            <td>%</td>
+		            <td>%{{percentage}}</td>
+		            <td>---</td>
+		          </tr>
+		        </tbody>
+	     </table>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
