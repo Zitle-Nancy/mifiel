@@ -6,7 +6,7 @@
 			testRequest.getDataVolabit().then(function(response) {
 				$scope.priceUsdvolabit = Number(response.data.btc_usd_buy);
 				$scope.priceMxnvolabit = ($scope.priceUsdvolabit * $scope.mxn).toFixed(2);
-				$scope.priceBuyMnx = response.data.btc_mxn_buy;
+				// $scope.priceBuyMnx = response.data.btc_mxn_buy;
 				getPercentage();			
 			})
 		}
@@ -22,6 +22,8 @@
 		function getPriceBitstamp() {
 			testRequest.getDataBitstamp().then(function(response) {
 				$scope.priceUsdBitstamp = response.data.ask;
+				$scope.priceMxnBitstamp = (Number($scope.priceUsdBitstamp) * $scope.mxn).toFixed(2);
+				console.log($scope.priceMxnBitstamp);
 				// console.log($scope.proceUsdBitstamp );
 			})
 		};
@@ -35,11 +37,10 @@
 		getPriceMxn();
 
 		function getPercentage() {
-			var  difference = Number($scope.priceMxnvolabit) - Number($scope.priceBuyMnx);
-			var divideTheDifference = difference / Number($scope.priceBuyMnx);
+			var  difference = Number($scope.priceMxnvolabit) - Number($scope.priceMxnBitstamp);
+			var divideTheDifference = difference / Number($scope.priceMxnBitstamp);
 			$scope.percentage =  (divideTheDifference * 100).toFixed(2);
 		};
-		
 	}]);
 
 })();
